@@ -13,12 +13,12 @@ import { ClassSimple, PropertySimple, MethodSimple, ParameterSimple, GenericSimp
 @ClassSimple()
 class Demo {
 	@PropertySimple()
-	name: string
+	name: 'Jeremy' | 'Arthur'
 
 	@PropertySimple()
 	age?: number
 
-	constructor(name = 'Arthur') {
+	constructor(name = 'Arthur' as const) {
 		this.name = name
 	}
 
@@ -29,7 +29,7 @@ class Demo {
 	}
 }
 
-const demo = new Demo('Jeremy')
+const demo = new Demo()
 
 log('Reflect.ownKeys', Reflect.ownKeys(demo))
 
